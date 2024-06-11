@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input, button {
+            margin: 10px;
+        }
+        #teste {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="teste" onmouseout="viraVerde()" onmouseover="viraAmarelo()">
+    </div>
+
+    <div class="container">
+        <h1>Entradas e Saída</h1>
+        <input type="text" id="input1" placeholder="Digite o primeiro valor">
+        <input type="text" id="input2" placeholder="Digite o segundo valor">
+        <input type="text" id="input3" placeholder="Digite o segundo valor">
+        <button onclick="valorDoResultado()">Calcular Resultado</button>
+        <p id="saida"></p>
+    </div>
+
+    <script>
+        function valorDoResultado() {
+            var valor1 = document.getElementById('input1').value;
+            var valor2 = document.getElementById('input2').value;
+            var valor3 = document.getElementById('input3').value;
+            var saida = document.getElementById('saida');
+            
+            if (valor1 && valor2 && valor3) {
+                // Convertendo os valores para números e somando
+                var soma = parseFloat(valor1) + parseFloat(valor2) + parseFloat(valor3);
+                saida.textContent = `Parabens você preencheu certinho os campos o resultado da soma é: ${soma}`;
+                }
+             else {
+                saida.textContent = 'Por favor, preencha todos os campos.';
+            }
+        }
+
+
+        function viraVerde() {
+            var div = document.getElementById("teste");
+            div.style.backgroundColor = "green";
+        }
+
+        function viraAmarelo() {
+            var div = document.getElementById("teste");
+            div.style.backgroundColor = "yellow";
+        }
+
+    
+
+    </script>
+
+    <h4>ola testando o meu commite</h4>
+
+</body>
+</html>
